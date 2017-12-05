@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <button class="btn btn-success addBtn">添加</button>
+    <table class="table table-bordered active">
+        <thead>
+            <th><input type="checkbox"></th>
+            <th>问卷调查名称</th>
+            <th>问卷调查班级</th>
+            <th>参与人数</th>
+            <th>问卷选项</th>
+            <th>调查地址</th>
+            <th>查看评分</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+        {% for Questionnaire in Questionnaire_obj %}
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>{{ Questionnaire.title }}</td>
+                <td>{{ Questionnaire.cls.title }}</td>
+                <td>{{ answer_obj.student.count }}/{{ class_obj.student_set.all.count }}</td>
+                <td><a href="/questionedit/">编辑问卷</a></td>
+                <td><a href="">/studentn/evaluate/2/3/</a></td>
+                <td><a href="">查看评分</a></td>
+                <td><a href=""><button class="btn btn-danger">删除</button></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
